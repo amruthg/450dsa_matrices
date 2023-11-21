@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int r,c;
+    cin>>r>>c;
+    // vector<vector<int>> matrix(r);
+
+    vector<vector<int>> matrix(r,vector<int>(c)); // Defaults to zero initial value
+    //vector<vector<int> > fog(r,vector<int>(c, 4)); //intialzing a matrix to  default value 4
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            cin>>matrix[i][j];
+        }
+    }
+    
+    int top=0,bottom=r-1;
+    int input;cin>>input;
+    while(top<=bottom){
+        if(matrix[top][0]<=input and matrix[top][c-1]>=input){
+            for(int i=0;i<c;i++){
+                if(matrix[top][i]==input){
+                    cout<<"yes";return 0;
+                }
+            }
+            cout<<"no";
+            return 0;
+
+        }
+
+        top++;
+    }
+    cout<<"no";
+    return 0;
+}
