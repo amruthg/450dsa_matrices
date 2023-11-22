@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int r,c;
+    cin>>r>>c;
+    // vector<vector<int>> matrix(r);
+
+    vector<vector<int>> matrix(r,vector<int>(c));
+
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            cin>>matrix[i][j];
+        }
+    }
+
+    //the brute force application.
+
+    int count=0,maxi=0,row=-1;
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            if(matrix[i][j]==1){
+                count++;
+            }
+            if(maxi<count){
+            maxi=count;
+            row=i;
+            }
+        }
+    }
+
+    if(row==-1){
+        cout<<"hi";
+        return 0;
+    }
+
+    cout<<row;
+    return 0;
+
+}
