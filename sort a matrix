@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void funct(vector<vector<int>> &input,int size){
+
+    vector<int> temp;
+    for(int i=0;i<size;i++){
+        for(int j=0;j<size;j++){
+            temp.push_back(input[i][j]);
+        }
+    }
+    sort(temp.begin(),temp.end());
+    int x=0;
+    for(int i=0;i<size;i++){
+        for(int j=0;j<size;j++){
+            input[i][j]=temp[x++];
+        }
+    }
+    cout<<endl;
+    for(int i=0;i<size;i++){
+            for(int j=0;j<size;j++){
+            cout<<input[i][j]<<" ";
+            }
+            cout<<endl;
+    }
+
+}
+
+int main(){
+
+    int r,c,size;
+    cin>>size;
+    r=size;c=size;
+    // vector<vector<int>> matrix(r);
+
+    vector<vector<int>> matrix(r,vector<int>(c));
+
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            cin>>matrix[i][j];
+        }
+    }
+    funct(matrix,size);
+    return 0;
+
+}
+
